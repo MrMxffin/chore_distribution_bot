@@ -168,6 +168,7 @@ function handleAddChoreCommand(msg) {
             bot.sendMessage(chatId, '❌ Standardbenutzer sind nicht festgelegt. Verwende /set_default_users, um Standardbenutzer festzulegen.', {message_thread_id: messageThreadId});
             return;
         }
+    } else {
         assignees = chats[chatId].defaultUsers;
     }
 
