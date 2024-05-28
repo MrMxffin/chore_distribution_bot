@@ -2,10 +2,12 @@ const TelegramBot = require('node-telegram-bot-api');
 const cron = require('node-cron');
 const dotenv = require('dotenv');
 const fs = require('fs');
+const bot_version = require('root-require')('package.json').version;
+const ds_version = require('root-require')('package.json').ds_version;
 
 dotenv.config();
 
-const storageFilePath = 'bot_data.json';
+const storageFilePath = './data/bot_data.json';
 
 // Function to check if a file exists
 function fileExists(filePath) {
@@ -168,6 +170,7 @@ function handleAddChoreCommand(msg) {
             bot.sendMessage(chatId, '❌ Standardbenutzer sind nicht festgelegt. Verwende /set_default_users, um Standardbenutzer festzulegen.', {message_thread_id: messageThreadId});
             return;
         }
+    } else {
         assignees = chats[chatId].defaultUsers;
     }
 
@@ -343,7 +346,7 @@ function handleTrash(msg) {
 function handleVersion(msg) {
     const chatId = msg.chat.id;
     const messageThreadId = msg.message_thread_id;
-    bot.sendMessage(chatId, `🤖 Bot-Version: ${process.env.BOT_VERSION}\n📊 Datenstruktur-Version: ${process.env.DATA_STRUCTURE_VERSION}`, {message_thread_id: messageThreadId});
+    bot.sendMessage(chatId, `🤖 Bot-Version: ${bot_version}\n📊 Datenstruktur-Version: ${ds_version}`, {message_thread_id: messageThreadId});
 }
 
 // Function to handle different commands

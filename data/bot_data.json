@@ -1,0 +1,31 @@
+{
+  "chats": {
+    "-1001474649492": {
+      "chores": [
+        {
+          "titles": [
+            "Bad putzen",
+            "Küche putzen",
+            "Wohnzimmer putzen",
+            "Flur putzen"
+          ],
+          "cronSchedule": "0 17 * * 0",
+          "assignees": [
+            "@mxmxffin",
+            "@schlou"
+          ],
+          "messageThreadId": 4,
+          "key": 0
+        }
+      ],
+      "assignmentCountMap": {
+        "@schlou": 42,
+        "@mxmxffin": 42
+      },
+      "defaultUsers": [
+        "@mxmxffin",
+        "@schlou"
+      ]
+    }
+  }
+}
